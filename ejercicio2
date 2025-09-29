@@ -1,0 +1,49 @@
+# Clase base llamada 'Empleado'
+class Empleado:
+    def __init__(self, nombre, apellido, edad):
+        # Estos son los atributos comunes que tienen todos los empleados
+        self.nombre = nombre
+        self.apellido = apellido
+        self.edad = edad
+       
+    def saluda(self):
+        # Método que devuelve un saludo simple
+        return "Hola, soy un Empleado"
+
+
+
+
+# Clase 'Gerente' que hereda de 'Empleado'
+class Gerente(Empleado):
+    def __init__(self, nombre, apellido, edad, salario):
+        # Uso de super() para llamar al constructor de la clase padre (Empleado)
+        super().__init__(nombre, apellido, edad)
+        # Atributo propio del Gerente
+        self.salario = salario  
+   
+    def saluda(self):
+        # Aquí el Gerente usa su propio saludo (sobrescribimos el método del padre)
+        return f"Hola, soy el gerente {self.nombre}"
+
+
+
+
+# Crear un empleado
+empleado1 = Empleado("Carlos", "Santos", 30)
+
+
+# Crear un gerente
+gerente1 = Gerente("William", "Pérez", 40, 5000)
+
+
+# Llamar al saludo del empleado
+print(empleado1.saluda())   # Hola, soy un Empleado
+
+
+# Llamar al saludo del gerente (tiene un saludo distinto)
+print(gerente1.saluda())    # Hola, soy el gerente William
+
+
+# Ver los nombres de cada objeto
+print(gerente1.nombre)      # William
+print(empleado1.nombre)     # Carlos
