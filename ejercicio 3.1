@@ -1,0 +1,47 @@
+from abc import ABC, abstractmethod
+
+# Esta es la clase principal (Animal).
+# Solo dice que todos los animales deben tener un nombre, una edad
+# y que deben poder hacer un sonido (pero no dice cuál).
+class Animal(ABC):
+    @abstractmethod
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    @abstractmethod
+    def hacer_sonido(self):  # Aquí solo se define la idea de "hacer sonido"
+        pass
+
+
+# Esta clase es Perro.
+# Como hereda de Animal, debe tener un nombre, una edad y su propio sonido.
+class Perro(Animal):
+    def __init__(self, nombre, edad, sonido):
+        super().__init__(nombre, edad)   # Reutilizo lo de la clase padre
+        self.sonido_perro = sonido       # Este es el sonido del perro
+
+    def hacer_sonido(self):
+        # Aquí ya digo cómo suena el perro
+        return f"Soy un perro, me llamo {self.nombre} y hago {self.sonido_perro}"
+
+
+# Esta clase es Gato.
+# Igual que el perro, también tiene nombre, edad y su sonido.
+class Gato(Animal):
+    def __init__(self, nombre, edad, sonido):
+        super().__init__(nombre, edad)   # Llamo al constructor de la clase padre
+        self.sonido_gato = sonido        # Este es el sonido del gato
+
+    def hacer_sonido(self):
+        # Aquí ya digo cómo suena el gato
+        return f"Soy un gato, me llamo {self.nombre} y hago {self.sonido_gato}"
+
+
+# Aquí creo un perro y un gato.
+animal1 = Perro("Leon", 18, "Guau")
+animal2 = Gato("Kata", 16, "Miau")
+
+# Ahora imprimo el sonido de cada uno.
+print(animal1.hacer_sonido())
+print(animal2.hacer_sonido())
