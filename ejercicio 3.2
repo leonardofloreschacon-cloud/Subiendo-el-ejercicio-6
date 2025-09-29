@@ -1,0 +1,34 @@
+from abc import ABC, abstractmethod
+
+# Esta es la clase principal (Vehiculo).
+# Aquí solo digo que todos los vehículos deben tener la acción "mover".
+# No digo cómo se mueven, eso lo harán las clases hijas.
+class Vehiculo(ABC):
+    @abstractmethod
+    def mover(self):
+        pass  # Aquí no hago nada, solo dejo la idea.
+
+
+# Esta clase es un Auto.
+# Como hereda de Vehiculo, debe tener "mover",
+# pero ahora digo que se mueve por carretera.
+class Auto(Vehiculo):
+    def mover(self):
+        return "El auto se mueve por carretera."
+
+
+# Esta clase es un Barco.
+# Igual que el auto, tiene "mover",
+# pero en este caso se mueve por agua.
+class Barco(Vehiculo):
+    def mover(self):
+        return "El barco navega en el agua."
+
+
+# Aquí creo un auto y un barco.
+vehiculo1 = Auto()
+vehiculo2 = Barco()
+
+# Ahora muestro cómo se mueve cada uno.
+print(vehiculo1.mover())
+print(vehiculo2.mover())
