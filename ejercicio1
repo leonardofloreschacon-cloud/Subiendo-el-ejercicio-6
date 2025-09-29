@@ -1,0 +1,39 @@
+class Vehiculo:
+    def __init__(self, marca, modelo, año):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+   
+    def encender(self):
+        return f"Enciende el auto {self.marca}"
+       
+   
+    def __str__(self):
+        return f"""Clase Vehiculo
+        Atributos
+        Marca ={self.marca}
+        Modelo ={self.modelo}
+        Año ={self.año}
+        """
+   
+    def __repr__(self):
+        return f"""Clase Vehiculo
+        Atributos
+        Marca ={self.marca} (string) not null
+        Modelo ={self.modelo} (string) not null
+        Año ={self.año} (string) not null
+        """
+
+
+
+
+vehiculo1 = Vehiculo("Toyota", "Corolla", 2022)
+
+
+print(vehiculo1.encender())
+
+
+print(str(vehiculo1))
+
+
+print(repr(vehiculo1))
